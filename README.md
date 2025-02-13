@@ -18,7 +18,7 @@ This plugin is proof of concept
 
 # Installation
 
-1) Review Installation guide located at [Docs](https://github.com/fHDHR/fHDHR/blob/main/docs/README.md)
+1) Review Installation guide located at [Docs](https://fhdhr.github.io/fHDHR_Docs/plugins/)
 
 2) Insert this plugin into the `plugins` directory of fHDHR using `git clone` or downloading a release zip file.
 
