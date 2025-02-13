@@ -1,6 +1,6 @@
 {
   "iptvorg":{
-          "filter_countries":{
+          "filter_country":{
                     "value": "US",
                     "config_file": true,
                     "config_web": true
