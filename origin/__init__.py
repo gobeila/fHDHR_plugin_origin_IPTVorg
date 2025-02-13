@@ -5,7 +5,7 @@ class Plugin_OBJ():
     def __init__(self, plugin_utils):
         self.plugin_utils = plugin_utils
 
-        self.channels_json_url = "https://iptv-org.github.io/iptv/channels.json"
+        self.channels_json_url = "https://iptv-org.github.io/api/channels.json"
 
         self.filter_dict = {}
         self.setup_filters()
@@ -27,7 +27,7 @@ class Plugin_OBJ():
 
     def setup_filters(self):
 
-        for x in ["countries", "languages", "category"]:
+        for x in ["country", "languages", "category"]:
             self.filter_dict[x] = []
 
         for filter in list(self.filter_dict.keys()):
@@ -85,18 +85,16 @@ class Plugin_OBJ():
                     filters_passed.append(True)
                 else:
                     if filter_key in list(channels_item.keys()):
-                        if filter_key in ["countries", "languages"]:
+                        if filter_key in ["country", "languages"]:
                             if isinstance(channels_item[filter_key], list):
                                 if len(channels_item[filter_key]):
                                     chan_values = []
-                                    chan_values.extend([x["name"] for x in channels_item[filter_key]])
-                                    chan_values.extend([x["code"] for x in channels_item[filter_key]])
+                                    chan_values.extend(channels_item[filter_key])
                                 else:
                                     chan_values = []
                             else:
                                 chan_values = []
-                                chan_values.append(channels_item[filter_key]["name"])
-                                chan_values.append(channels_item[filter_key]["code"])
+                                chan_values.append(channels_item[filter_key])
                         elif filter_key in ["category"]:
                             chan_values = [channels_item[filter_key]]
                     else:
